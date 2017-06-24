@@ -224,6 +224,54 @@
     series for the actual solution \(e^x\).
 
     \begin{solutionToProblem}
+      Given that
+      \begin{equation}
+        y^{\prime}(x) = y(x), \hspace{0.5cm} y(0) = 1
+      \end{equation}
+
+      Also given that
+      \begin{equation}
+        f(x,y) = y(x)
+      \end{equation}
+      According to picards theorem, we have
+      \begin{equation}
+        \begin{split}
+          \phi_{n+1}(x) & = y_0 + \int^{x}_{x_{0}}{f(t, \phi_{0}(t))}dt \\
+          & = 1 + \int^{x}_{0}{1}dt \\
+          & = 1 + x
+        \end{split}
+      \end{equation}
+
+      \begin{equation}
+        \begin{split}
+          \phi_{2}(x) & = y_0 + \int^{x}_{0}f(t, \phi_1(t))dt \\
+          & = 1 + \int^{x}_{0} f(t, \left( 1+t \right))dt \\
+          & = 1 + x + \frac{x^2}{2}
+        \end{split}
+      \end{equation}
+
+      \begin{equation}
+        \begin{split}
+          \phi_{3}(x) & = y_0 + \int^{x}_{0}f(t, \phi_2(t))dt \\
+          & = 1 + \int^{x}_{0} f \left(t, \left( 1+t + \frac{t^2}{2} \right) \right)dt \\
+          & = 1 + x + \frac{x^2}{2} + \frac{x^3}{6}
+        \end{split}
+      \end{equation}
+
+      \begin{equation}
+        \begin{split}
+          \phi_{4}(x) & = y_0 + \int^{x}_{0}f(t, \phi_3(t))dt \\
+          & = 1 + \int^{x}_{0}f \left( t, \left( 1 + t + \frac{t^2}{2} \right) \right)dt \\
+          & = 1 + x + \frac{x^2}{2} + \frac{x^3}{6} + \frac{x^4}{24}
+        \end{split}
+      \end{equation}
+
+      By observing the pattern as \(n\) goes, it is enough to say that
+      \[
+        \phi_{n}(x) = 1 + x + x^2 + \frac{x^2}{2} + \frac{x^3}{6} + \dots + \frac{x^n}{n!}
+      \]
+
+      This is the partial sum of the Maclaurian series of \(e^x\).
     \end{solutionToProblem}
 
   \item Use Picard's method with \(\psi+{0}(x) = 0\) to obtain the next
@@ -234,6 +282,40 @@
     Graph these approximations for \(0 \leq x \leq 1\).
 
     \begin{solutionToProblem}
+      \setcounter{equation}{0}
+      \begin{equation}
+        \begin{split}
+          y(x_1) & = y(x_0) + \int^{x}_{x_0}{f(x,y)dx} \\
+          & = f(x,y) = 2x - y^2 \\
+          y(0) & = 0
+        \end{split}
+      \end{equation}
+      We assume that \(x_0 = 0, x_1 = 0.25\) then
+      \begin{equation}
+        \begin{split}
+          \phi_1(x) & = y(0) + \int^{x}_{0}{\phi_0(x)dx} = 0 + \int^{x}_{0}{2x - 0}dx = x^2 \\
+          \phi_2(x) & = y(0) + \int^{x}_{0}{\phi_1(x)dx} = 0 + \int^{x}_{0}{(2x - x^2)dx} = x^2 - =frac{x^3}{3} \\
+          \phi_3(x) & = y(0) + \int^{x}_{0}{\phi_2(x)dx} = 0 + \int^{x}_{0}{(2x - x^2 + \frac{x^3}{3})dx} = x^2 - =frac{x^3}{3} + \frac{x^4}{12} \\
+          \phi_4(x) & = y(0) + \int^{x}_{0}{\phi_3(x)dx} = 0 + \int^{x}_{0}{(2x - x^2 + \frac{x^3}{3} - \frac{x^4}{12})dx} = x^2 - =frac{x^3}{3} + \frac{x^4}{12} - \frac{x^5}{60} \\
+        \end{split}
+      \end{equation}
+      If \(x = 0.25, \phi_1(x) = 0.0625, \phi_2(x) = 0.05729, \phi_3(x) =
+      0.05761, \phi_4(x) = 0.0576009\).
+      Thus, the better approximationn at \(x = 0.25\) is \(0.0576\).
+
+      If \(x = 0.5, \phi_1(x) = 0.25, \phi_2(x) = 0.2083, \phi_3(x) =
+      0.203125, \phi_4(x) = 0.21302\).
+
+      If \(x = 0.75, \phi_1(x) = 0.5625, \phi_2(x) = 0.421875, \phi_3(x) =
+      0.44824, \phi_4(x) = 0.605419\).
+
+      \begin{center}
+        \begin{figure}[h!]
+          \includegraphics[width=7cm]{chap1b.jpg}
+          \caption{}
+          \label{fig:chap1b}
+        \end{figure}
+      \end{center}
     \end{solutionToProblem}
 
   \item In Problem 29 in Exercises 1.2, we showed that the initial value
