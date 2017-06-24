@@ -1,0 +1,252 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{chngcntr}
+\usepackage{mathtools}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{thmtools}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+
+\declaretheoremstyle[headfont=\scshape,postheadspace=\newline]{mystyle}
+\declaretheorem[style=mystyle]{theorem}
+
+\usetikzlibrary{automata,positioning}
+
+%
+% Basic Document Settings
+%
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName}
+\chead{\hmwkTitle}
+\rhead{\firstxmark}
+\lfoot{\lastxmark}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setlength\parindent{0pt}
+
+%\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+
+%
+% Create Problem Sections
+%
+
+\newcommand{\enterProblemHeader}[1]{
+}
+
+\newcommand{\exitProblemHeader}[1]{
+    \nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak{}
+    \stepcounter{#1}
+    \nobreak\extramarks{#1}{}\nobreak{}
+}
+
+\setcounter{secnumdepth}{0}
+\newcounter{partCounter}
+\newcounter{homeworkProblemCounter}
+\setcounter{homeworkProblemCounter}{1}
+
+%
+% Homework Problem Environment
+%
+% This environment takes an optional argument. When given, it will adjust the
+% problem counter. This is useful for when the problems given for your
+% assignment aren't sequential. See the last 3 problems of this template for an
+% example.
+%
+\newenvironment{homeworkProblem}[1]{
+    \section{#1}
+    \setcounter{partCounter}{1}
+    \setcounter{equation}{0}
+    \setcounter{theorem}{0}
+}
+
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{MATH 2A: Differential Equations}
+\newcommand{\hmwkDueDate}{}
+\newcommand{\hmwkClass}{Discrete Mathematics}
+\newcommand{\hmwkClassTime}{}
+\newcommand{\hmwkClassInstructor}{}
+\newcommand{\hmwkAuthorName}{\textbf{Edwin Njinimbam}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass\ \hmwkTitle}}\\
+    \vspace{0.1in}\large{\textit{\hmwkClassInstructor\ \hmwkClassTime}}
+    \vspace{3in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
+
+%
+% Various Helper Commands
+%
+
+% Useful for algorithms
+\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+
+% For derivatives
+\newcommand{\deriv}[2]{\frac{\mathrm{d}{#1}}{\mathrm{d}{#2}}}
+\newcommand{\derivs}[2]{\frac{\mathrm{d}^2 {#1}}{\mathrm{d}{#2}^2}}
+
+% For partial derivatives
+\newcommand{\pderiv}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pderivs}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+
+% Integral dx
+\newcommand{\dx}{\mathrm{d}x}
+
+% Alias for the Solution section header
+\newcommand{\solution}{\textbf{\large Solution}}
+
+% Probability commands: Expectation, Variance, Covariance, Bias
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Bias}{\mathrm{Bias}}
+
+\newcommand{\ls} {\(\mathcal{LS}(A,\textbf{0})\)}
+\newcommand{\nullspace}[1]{\mathcal{N}(#1)}
+\newcommand{\p} {$\boxed{1}$~}
+\newcommand*\Domain[1]{\in\mathbb{C}^{#1}}
+\newcommand{\iu}{{i\mkern1mu}}
+
+\counterwithin*{equation}{section}
+\counterwithin*{equation}{subsection}
+
+\newcommand{\matxx}[2] {
+\begin{bmatrix}
+  #1 \\
+  #2 \\
+\end{bmatrix}
+}
+
+\newcommand{\matxxx}[3] {
+\begin{bmatrix}
+  #1 \\
+  #2 \\
+  #3 \\
+\end{bmatrix}
+}
+
+\newcommand{\matxxxx}[4] {
+\begin{bmatrix}
+  #1 \\
+  #2 \\
+  #3 \\
+  #4 \\
+\end{bmatrix}
+}
+\newcommand{\matxxxxx}[5] {
+\begin{bmatrix}
+  #1 \\
+  #2 \\
+  #3 \\
+  #4 \\
+  #5 \\
+\end{bmatrix}
+}
+
+\newcommand{\matxxxxxx}[6] {
+\begin{bmatrix}
+  #1 \\
+  #2 \\
+  #3 \\
+  #4 \\
+  #5 \\
+  #6 \\
+\end{bmatrix}
+}
+
+\newcommand{\arrow}[1] {\xrightarrow[]{\text{#1}}}
+
+\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+\newenvironment{solutionToProblem} {
+
+  \bigskip
+
+  \textbf{Solution}
+}
+
+\begin{document}
+
+\pagebreak
+
+\begin{homeworkProblem}{Chapter 1 B: Picard's Method}
+  \begin{enumerate}[label=(\alph*)]
+  \item  Use Picard's method with \(\psi_{0}(x) = 1\) to obtain the next four
+    successive approximations of the solution to
+    \[y^{\prime}(x) = y(x), \hspace{0.5cm} y(0) = 1\]
+    Show that these approximations are just the partial sums of the Maclaurin
+    series for the actual solution \(e^x\).
+
+    \begin{solutionToProblem}
+    \end{solutionToProblem}
+
+  \item Use Picard's method with \(\psi+{0}(x) = 0\) to obtain the next
+    three successive approximations of the solution to the nonlinear problem
+    \[
+      y^{\prime}(x) = 3x - \left[ y(x)^2 \right], \hspace{0.5cm} y(0) = 0
+    \]
+    Graph these approximations for \(0 \leq x \leq 1\).
+
+    \begin{solutionToProblem}
+    \end{solutionToProblem}
+
+  \item In Problem 29 in Exercises 1.2, we showed that the initial value
+    problem
+    \[y^{\prime}(x) = 3\left[ y(x)^{2/3}, y(2) = 0 \right]\]
+    does not have a unique solution. Show that Picard's method beginning
+    with \(\psi_{0}(x) = 0\) converges to the solution \(y(x) = 0\),
+    whereas Picard's method beginning with \(\psi_{0}(x) = x - 2\)
+    converges to the second solution \(y(x) = (x - 2)^{3}\).
+
+    \begin{solutionToProblem}
+    \end{solutionToProblem}
+    
+  \end{enumerate}
+\end{homeworkProblem}
+\end{document}
