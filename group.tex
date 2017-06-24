@@ -320,15 +320,62 @@
 
   \item In Problem 29 in Exercises 1.2, we showed that the initial value
     problem
-    \[y^{\prime}(x) = 3\left[ y(x)^{2/3}, y(2) = 0 \right]\]
+    \[y^{\prime}(x) = 3\left[ y(x)\right]^{2/3}, y(2) = 0\]
     does not have a unique solution. Show that Picard's method beginning
     with \(\psi_{0}(x) = 0\) converges to the solution \(y(x) = 0\),
     whereas Picard's method beginning with \(\psi_{0}(x) = x - 2\)
     converges to the second solution \(y(x) = (x - 2)^{3}\).
 
     \begin{solutionToProblem}
+      \setcounter{equation}{0}
+      The given IVP can be written as
+      \begin{equation}
+        y^{\prime}(t) = f(x, y(x)) \mbox{ where } f(x,y(x)) = 3(y(x))^{2/3}
+      \end{equation}
+
+      The first iteration is given by
+
+      \begin{equation}
+        \begin{split}
+          y_1(x) & = y(2) + \int^{x}_{2} f(u, y(2))du \\
+          & = 0 + \int^{t}_{2} f(u, 0)du \\
+          & = 0 + \int^{x}_{0} 0du = 0
+        \end{split}
+      \end{equation}
+      If we repeat the procedure, then we get
+      \begin{equation}
+        y_2(x) = 0
+      \end{equation}
+
+      Thus, we get the trivial solution \(y(x) = 0\) for the IVP.
+
+      \bigskip
+
+      Suppose that
+      \begin{equation}
+        \phi_0(x) = x - 2
+      \end{equation}
+
+      Then the first iteration is given by
+      \begin{equation}
+        \begin{split}
+          \phi_1(x) & = \phi_0(x) + \int^{x}_{2} f\left( u, \phi_0(x) \right)du \\
+          & = x - 2 + \int^{x}_{2}f(u, x-2)du \\
+          & = x - 2 + \int^{x}_{2}{3(x - 2)^{2/3}du} = x - 2 3 \frac{(x-2)^{5/3}}{5/3} \Bigm|_2^x \\
+          & = x - 2 + \frac{9}{5}(x-2)^{5/3} = (x-2)\left( 1 + \frac{9}{5}(x-2)^{2/3} \right)
+        \end{split}
+      \end{equation}
+
+      The second iteration is given by
+      \begin{equation}
+        \begin{split}
+          \phi_2(x) & = \phi_0(x) + \int^{x}_{2}{\left( fu, \phi_1(x) \right)du} \\
+          & = x - 2 + \int^{x}_{2}f\left( u, x-2 \right)du \\
+          & = x - 2 + \int^{x}_{2}{x - 2 + \frac{9}{5}(x-2)^{5/3}du} = x - 2 + \left( \frac{(x-2)^2}{2} + \frac{9}{5}\frac{(x-2)^{8/3}}{8/3} \Bigm|^{x}_{2} \right) \\
+          & = x - 2 =frac{(x-2)^{2}}{2} + \frac{27}{40}(x-2)^{8/3}
+        \end{split}
+      \end{equation}
     \end{solutionToProblem}
-    
   \end{enumerate}
 \end{homeworkProblem}
 \end{document}
