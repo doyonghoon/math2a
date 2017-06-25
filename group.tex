@@ -419,4 +419,171 @@
     \end{solutionToProblem}
   \end{enumerate}
 \end{homeworkProblem}
+
+\pagebreak
+
+\begin{homeworkProblem}{Chapter 4 A: Nonlinear Equations Solvable by First-Order Techniques}
+  \begin{enumerate}[label=(\alph*)]
+  \item
+    \begin{solutionToProblem}
+      
+      The given equation can ben rewritten as
+      
+      \[
+        \begin{split}
+          2x\deriv{w}{x} - w + \frac{1}{w} & = 0 \\
+          2x\deriv{w}{x} & = w - \frac{1}{w} \\
+          \frac{1}{w - 1/w}dw & = \frac{1}{2x}dx
+        \end{split}
+      \]
+
+      Therefore we get
+      \[
+        \frac{1}{2} \int{\left( \frac{1}{w^2 - 1}2w \right) dw} = \frac{1}{2} \int{\frac{1}b{2}dx}
+      \]
+
+      That is
+      \[
+        \begin{split}
+          \ln{w^2 - 1} & = \ln{\left| x \right| + C} \\
+          w^2 - 1 & = x + C \\
+          w & = \deriv{y}{x} = \sqrt{x + 1}
+        \end{split}
+      \]
+
+      Thus, we obtain
+
+      \[
+        y = \int{\left( x + 1 \right)^{\frac{1}{2}}}dx = \frac{1}{2\sqrt{x+1}} + C
+      \]
+    \end{solutionToProblem}
+  \item
+    
+    \begin{solutionToProblem}
+      \[
+        \begin{split}
+          (2y)(w)\deriv{w}{y} & = 1 + w^2 \\
+          2y\deriv{w}{y} & = \frac{1}{w} + w = \frac{w^2 + 1}{w} \\
+        \end{split}
+      \]
+
+      This becomes
+      \[
+        \frac{1}{2}\int{1}{\left( w^2 + 1 \right) (2w)dw} = \frac{1}{2} \int{\frac{1}{y}}dy
+      \]
+
+      Then we obtain
+      \[
+        \begin{split}
+          w & = \sqrt{y - 1} + C
+        \end{split}
+      \]
+
+      \[
+        \begin{split}
+          \int{\frac{1}{\sqrt{y - 1}}dy} = \int{dx}
+          \sqrt{y - 1} & = 2x + C_1
+        \end{split}
+      \]
+
+      Thus we obtain
+      \[
+        y_1 = 1 + 4x^2 + C
+      \]
+
+      Then we need to have another equation.
+      \[
+        2yw\deriv{w}{y} = -yw
+        2\deriv{w}{y} = -\frac{yw}{yw} = -1
+      \]
+
+      \[
+        \begin{split}
+          \int{dw} & = -\frac{1}{2}\int{dy} \\
+          -2 \int{\frac{1}{y}dy} & = \int{dx}
+        \end{split}
+      \]
+
+      This becomes
+      \[
+        \begin{split}
+          -2\ln{\left| y \right|} & = x + C \\
+          \ln{\left| y \right|} & = -\frac{1}{2}x + C
+        \end{split}
+      \]
+
+      Thus, we get
+      \[
+        y_2 = Ce^{-\frac{x}{2}}
+      \]
+    \end{solutionToProblem}
+
+  \item \textbf{Suspended Cable.}
+    \begin{solutionToProblem}
+      \setcounter{equation}{0}
+      The given differential equation is
+      \begin{equation}
+        y^{\prime\prime} = \frac{1}{a}\sqrt{1 + \left( \deriv{y}{x} \right)^2}; \hspace{0.5cm} y(0) = a, \hspace{0.5cm} y^{\prime}(0) = 0, \hspace{0.2cm} \mbox{ where } a (\neq 0) \mbox{ is a constant.}
+      \end{equation}
+
+      Let \(v = y^{\prime}\) then we can say that \(\deriv{v}{x} =
+      y^{\prime\prime}\)
+      
+      Now, we solve
+      \begin{equation}
+        \begin{split}
+          \deriv{v}{x} & = \frac{1}{a}\sqrt{1 + v^2} \\
+          \int{\frac{dv}{\sqrt{1 + v^2}}} & = a\int{dx} \\
+        \end{split}
+      \end{equation}
+
+      This becomes
+      \begin{equation}
+        \ln{\sqrt{1+v^2} + v} = ax
+      \end{equation}
+
+      Thus, this is enough reason to say that
+      \[
+        \begin{split}
+          x^{\prime}(0) & = 0 \\
+        \end{split}
+      \]
+      This means \(C = 0\).
+
+      Therefore
+
+      \begin{equation}
+        \begin{split}
+          \ln{\sqrt{1 + v^2} + v} & = ax \\
+          \sqrt{1 + v^2} + v & = e^{ax} \\
+          \left( -\sqrt{1 + v^2} \right) & = \left( v - e^{ax} \right)^2 \\
+          v & = \frac{e^{2ax} - 1}{2e^{ax}} = \frac{1}{2}\left[ e^{ax} - e^{-ax}\right]
+        \end{split}
+      \end{equation}
+
+      \begin{equation}
+        \begin{split}
+          \deriv{y}{x} & = \frac{1}{2}\left( e^{ax} - e^{-ax}\right) \\
+          \int{dy} & = \frac{1}{2}\int{\left( e^{ax} - e^{-ax} \right)dx} \\
+          y & = \frac{1}{2}\frac{\left( e^{ax} + e^{-ax} \right)}{a} + C_2
+        \end{split}
+      \end{equation}
+
+      At \(y(0) = a\),
+      \[
+        a = \frac{1}{2}\frac{2}{a} + C_2
+      \]
+
+      Therefore,
+      \[
+        C_2 = \frac{\left( a^2 - 1 \right)}{a}
+      \]
+
+      Then finally we get
+      \begin{equation}
+        y & = \frac{1}{2}\left( \frac{a^{ax} + e^{-ax}}{a} \right) + \frac{a^2 - 1}{a}
+      \end{equation}
+    \end{solutionToProblem}
+  \end{enumerate}
+\end{homeworkProblem}
 \end{document}
