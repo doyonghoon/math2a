@@ -706,4 +706,87 @@
     \end{solutionToProblem}
   \end{enumerate}
 \end{homeworkProblem}
+
+\pagebreak
+
+\begin{homeworkProblem}{Linearization of Nonlinear Problems}
+  \begin{enumerate}[label=(\alph*)]
+  \item
+    \begin{solutionToProblem}
+      \begin{equation}
+        \begin{split}
+          \theta^{\prime}(t) & = -\sin{\theta(t)} \\
+          \theta^{\prime\prime}(0) & = -\sin(\theta(0)) \\
+          \theta^{\prime\prime\prime}(t) & = -\cos{\theta(t)}\theta^{\prime}(t) \\
+          \theta^{(4)} & = \sin(\theta(t))(\theta^{\prime}(t))^2 - \cos(\theta(t))\theta^{\prime\prime}(t) \\
+        \end{split}
+      \end{equation}
+
+      \[
+        \theta^{(4)}(0) = \sin{\theta(0)}(\theta^{\prime}(0))^2 + \cos(\theta(0))\sin(\theta(0))
+      \]
+
+      \[
+        \theta^{(5)}(t) = \cos(\theta(t))(\theta^{\prime}(t))^3 +
+        2\sin(\theta(t))\theta^{\prime}(t)\theta^{\prime\prime}(t) +
+        \deriv{ \left(  \sin{2\theta(t)} \right) }{t} \left( \frac{1}{2} \right)
+      \]
+
+      \[
+        \begin{split}
+                  \theta^{(5)}(t) & = \cos(\theta(t))(\theta^{\prime}(t))^3 +
+                  2\sin{\theta(t)} \theta^{\prime}(t) \theta{^\prime\prime}(t) +
+                  \cos{2\theta(t)}\theta^{\prime}(t) \\
+                  \theta^{(5)}(0) & = \cos(\theta(0))(\theta^{\prime}(0))^3 +
+                  2\sin{\theta(0)} \theta^{\prime}(0) \theta{^\prime\prime}(0) +
+                  \cos{2\theta(0)}\theta^{\prime}(0) \\
+        \end{split}
+      \]
+    \end{solutionToProblem}
+  \item
+    \begin{solutionToProblem}
+      \[
+        derivs{\theta}{t} + \theta = 0
+      \]
+
+      Now solving for \(\theta\), then we get
+      \[
+        \begin{split}
+          \theta & = C_1e^t + C_2e^{-t} \\
+          \theta(0) & = C_1 + C_2 = \frac{\pi}{2}
+        \end{split}
+      \]
+
+      Since
+      \[
+        \theta^{\prime}(t) = C_1e^{t} - C_2e^{-t}
+      \]
+
+      The constant values are
+      \[
+        \begin{split}
+          C_1 - C_2 & = 0 \\
+          C_1 = C_2 = \frac{\pi}{24}
+        \end{split}
+      \]
+
+      Thus,
+      \[
+        \theta(t) = \frac{\pi}{24}\left[ e^t + e^{-t} \right]
+      \]
+    \end{solutionToProblem}
+
+  \item
+    \begin{solutionToProblem}
+    \end{solutionToProblem}
+
+  \item
+    \begin{solutionToProblem}
+    \end{solutionToProblem}
+
+  \item
+    \begin{solutionToProblem}
+    \end{solutionToProblem}
+  \end{enumerate}
+\end{homeworkProblem}
 \end{document}
