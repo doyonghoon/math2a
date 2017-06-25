@@ -789,4 +789,291 @@
     \end{solutionToProblem}
   \end{enumerate}
 \end{homeworkProblem}
+
+\pagebreak
+
+\begin{homeworkProblem}{Chapter 4E: Convolution Method}
+  \begin{enumerate}[label=(\alph*)]
+  \item
+    \begin{solutionToProblem}
+      The convolution of two functions \(g\) and \(f\) is the function \(g
+      \times f\) define by
+      \[
+        (g \times f)(t) = \int^{t}_{0}{g(t-u) f(u) du}
+      \]
+
+      And by Leibnitz's rule
+      \[
+        \deriv{}{t} \int^{t}_{a}{h(t,u)du} = \int^{t}_{a}{\pderiv{h}{t}(t,u)du}
+        + h(t,t)
+      \]
+
+      \begin{equation}
+        \begin{split}
+          (y \times f)^{\prime}(t) & = \deriv{}{t}\left[ (y \times f)(t) \right] \\
+          & = \deriv{}{t} \int^{t}_{0}{y(t - u) f(u)du} \\
+          & = \int^{t}_{0}{\pderiv{}{t} (y(t-u)f(u))du } + y(t-t)f(t) \\
+          & = \int^{t}_{0}{y^{\prime}f(u)du} + y(0)f(t) \\
+          & = (y^{\prime} \times f)(t) + y(0)f(t)
+        \end{split}
+      \end{equation}
+
+      Therefore we obtain
+      \[
+        \begin{split}
+          (y \times f)^{\prime}(t) & = (y^{\prime} \times f)(t) + y(0)f(t) \\
+        \end{split}
+      \]
+
+      Then, we can use this equation to get
+      \begin{equation}
+        \begin{split}
+          (y \times f)^{\prime\prime} & = \deriv{}{t}\left( (y \times f)^{\prime} \right)(t) \\
+          & = \deriv{}{t} \left[ \left( y^{\prime} \times f \right)(t) + y(0)f(t) \right] \\
+          & = \deriv{}{} \left(  \left(  y^{\prime} \times f  \right)(t)  \right) + \deriv{}{t}\left( y(0)f(t) \right) \\
+          & = \left[ \left(  y^{\prime\prime} \times f  \right)(t) + y^{\prime}(0)f(t) \right] + y(0)f^{\prime}(t) \\
+          & = \left[  \left( y^{\prime\prime} \times f \right)(t) + y^{\prime}(0)f(t)  \right] + y(0)f^{\prime}(t) \\
+        \end{split}
+      \end{equation}
+
+      Therefore, we get
+      \[
+        \left( y \times f \right)^{\prime\prime} = \left[ \left(
+            y^{\prime\prime} \times f \right)(t) + y^{\prime}(0)f(t) \right] + y(0)f^{\prime}(t)
+      \]
+    \end{solutionToProblem}
+  \item
+    \begin{solutionToProblem}
+      Given the differential equation
+      \[
+        ay^{\prime\prime} + by^{\prime} + cy = 0
+      \]
+
+      Let \(y_k(t)\) is the solution to the given differential equation.
+      To show that \(y_k \times f\) is the particular solution to
+      \(ay^{\prime\prime} + by^{\prime} + cy = f(t)\) satisfying \(y(0) =
+      y^{\prime}(0) = 0\).
+
+      \begin{equation}
+        \begin{split}
+          (y_k \times f)^{\prime\prime} & = \left( y_k^{\prime\prime} \times f \right)(t) + y_k(0)f(t) + y_k(0)y^{\prime}(t) \\
+          & = (y^{\prime\prime} \times f)(t) + \frac{f(t)}{a} \\
+          (y_k \times f)^{\prime}(t) & = (y_k \times f)^{\prime}(t) + y_k(0)f(t) \\
+          & = \left( y_k^{\prime} \times f \right)(t)
+        \end{split}
+      \end{equation}
+
+      Therefore
+      \[
+        \begin{split}
+          a(y_k^{\prime\prime} \times f)(t) + b(y_k \times f)^{\prime}(t) + c(y_k
+          \times f) & = a\left[ (y^{\prime\prime}_k \times f)(t) + \frac{f(t)}{a}
+          \right] + b(y_k^{\prime})(t) + c(y_k \times f) \\
+          & = f(t) + a(y_k^{\prime\prime} \times f)(t) + b(y^{\prime}_k \times
+          f)(t) + c(y_k \times f)
+        \end{split}
+      \]
+
+      Then 
+      \[
+        \begin{split}
+          L \left( a(y_k^{\prime\prime} \times f)(t) + b(y_k^{\prime} \times f)(t)
+            + c(y_k \times f)\right) & = aL\left( (y^{\prime\prime}_k \times f)
+          \right) \\
+          & = L(f) L\left( a^{\prime\prime}_k + by^{\prime}_{k} + cy_k \right) \\
+          & = L(f) \times 0 \\
+          & = 0
+        \end{split}
+      \]
+
+      By applying Inver Laplace Transform, we get
+      \[
+        a\left( y^{\prime\prime}_k \times f \right)(t) + b(y_k \times
+        f)^{\prime}(t) + c(y_k \prime f) = 0
+      \]
+
+      Thus, \(y_k \times f\) is the solution of the given differential equation.
+      Moreover,
+      \[
+        y_k \times f \Bigm|_{t = 0} = \int^{0}_{0}{f(v)y_k(0 - v)dv} = 0
+      \]
+
+      Hence showed.
+    \end{solutionToProblem}
+  \item
+    \begin{solutionToProblem}
+      Since \(y_k(t)\) is a solution of the corresponding homogeneus equation
+      and \((y_k \times f)\) is a particular solution, it is obvious to say that
+      \((y_k \times f) + y_k(t)\) is a solution of \(ay^{\prime\prime}_k +
+      by^{\prime}_k cy_k = f(t)\). Also,
+      \[
+        \begin{split}
+          \left( \left( y \times f \right) + y_k \right)(0) & = \left( y \times f
+          \right)(0) + y_k(0) \\
+          & = 0 + y_0 \\
+          & = y_0
+        \end{split}
+      \]
+
+      \[
+        \begin{split}
+          \left( \left( y \times f \right) + y_k \right)^{k}(0) & = \left( y \times
+            f \right)^{\prime}(0) + y_k^{\prime}(0) \\
+          & = y_1
+        \end{split}
+      \]
+
+      By using \textbf{Uniqueness Theorem} of the solutions of ODE,
+      \(y_k(0)\) is the unique solution of the homogeneous equation with the
+      initial conditions \(y_k(0) = y_k, \hspace{0.2cm} y^{\prime}_k(0) = y_1\).
+
+      For the same equation \(y_k(t)\) is the solution of the homogeneous
+      equation with the initial condition \(y_k(0) = 0, \hspace{0.2cm}
+      y^{\prime}_k(0) = \frac{1}{a}\).
+
+      Thus, \((y \times f) + y_k\) must be the unique solution of
+      \(ay^{\prime\prime}_k + by^{\prime}_k + cy_k = f(t)\) with \(y(0) = y_0\)
+      and \(y^{\prime}(0) = y_1\).
+    \end{solutionToProblem}
+  \item
+    \begin{solutionToProblem}
+
+      \begin{enumerate}
+      \item \textbf{Finding the general solution of the homogeneous equation.}
+        \[
+          \begin{split}
+            y^{\prime\prime} + y  = 0 \\
+            y = c_1 \sin{t} + c_2 \cos{t}
+          \end{split}
+        \]
+
+        From part (b), \(y_k = c_1 \sin{t} + c_2\cos{t}\) satisfying \(y_k(0) =
+        0, y^{\prime}_k(0) = \frac{1}{a} = 1\).
+
+        That is
+        \[
+          \begin{split}
+            y_k(0) = 0 = 0 + c_2 \\
+            y^{\prime}_k(0) = 1 = c_1 - 0
+          \end{split}
+        \]
+
+        Therefore \(y_k = \sin{t}\)
+        Now, by using part (c), we find \(y_k\) as \(y(0) = 0\), \(y^{\prime}(0)
+        = -1\).
+        \[
+          \begin{split}
+            y_k(0) & = 0 = 0 + c_2 \\
+            y^{\prime}_k(0) = -1 = c_1 - 0
+          \end{split}
+        \]
+        Therefore \(y_k = -\sin{t}\).
+        From part (c), the solution of the given equation is
+        \[
+          \begin{split}
+            (y_k \times f)(t) + y_k(t) & = (\sin \times \tan)(t) - \sin{t} \\
+            & = \int^{t}_0{\sin{t - u}u du} - \sin{t} \\
+            & = \int^{t}_{0}{\sin{t}\cos{u} - \sin{u}\cos{t}}\tan{u}du - \sin{t}
+            \\
+            & = \sin{t}\int^{t}_{0}{\sin{u}du} - \cos{t} \int^{t}_{0}{\sec{u} -
+              \cos{u}du} - \sin{t} \\
+            & = \sin{t}\left[ -\cos{u} \right]^{t}_{0} - \cos{t}\left[
+              \ln{\sec{u} + \tan{u} - \sin{u}}^{t}_{0} \right] - \sin{t} \\
+            & = -\cos{t} \ln{\left[ \sec{t} + \tan{t} \right]}
+          \end{split}
+        \]
+
+      \item
+
+        The general solution to the homogeneous equation is
+        \[
+          \begin{split}
+            2y^{\prime\prime} + y^{\prime} - y = 0 \\
+            y = c_1 e^{-t} + c_2 e^{\frac{t}{2}}
+          \end{split}
+        \]
+
+        Then, \(y_k = 0 c_1e^{-t} + c_2e^{\frac{t}{2}}\) satisfying \(y_k(0) =
+        0, y^{\prime}_k(0) = \frac{1}{a} = \frac{1}{2}\).
+
+        \[
+          \begin{split}
+            y_k(0) = 0 = c_1 + c_2 \\
+            y^{\prime}_k(0) = \frac{1}{2} = c_1 + \frac{1}{2}c_2 \\
+          \end{split}
+        \]
+
+        So \(c_1 = -\frac{1}{3}\), \(c_2 = \frac{1}{3}\)
+
+        \[
+          y_k = \frac{1}{3}e^{\frac{t}{2}} - \frac{1}{3}e^{-t}
+        \]
+
+        By using the part (c), \(y_k = c_1e^{-t} + c_2e^{\frac{t}{w}}\)
+        satisfying \(y(0) = 1, y^{\prime} = -1\).
+        \[
+          \begin{split}
+            y_k(0) = 1 = c_1 + c_2 \\
+            y^{\prime}_1(0) = -1 = c_1 + \frac{1}{2}c_2
+          \end{split}
+        \]
+
+        \[
+          y_k = \frac{4}{3}e^{\frac{t}{2}} - \frac{1}{3}e^{-t}
+        \]
+
+        Therefore from the part (c) given equation is,
+        \[
+          \begin{split}
+            (y_k \times f)(t) & = \int^{t}_{0}{\left(
+                \frac{1}{3}e^{\frac{(t-u)}{2}} - \frac{1}{3}e^{-t}\sin{(u)}
+              \right)du} + \frac{4}{3}e^{\frac{t}{2}} - \frac{1}{3}e^{-t} \\
+            & = -\frac{6}{39}e^{-t} \sin{t} + \frac{3}{13}e^{-t} \cos{t}
+            -\frac{2}{3}e^{-t} + \frac{56}{39}e^{\frac{t}{2}}
+          \end{split}
+        \]
+
+        \item Now, the general solution to homogeneous equation is
+          \(2y^{\prime\prime} - 2y^{\prime} + y = 0\) is
+          \[
+            y = c_1e^{t} + c_2te^{t}
+          \]
+          Therefore, from the part (b), \(y_k = c_1e^{t} + c_2te^{t}\)
+          satisfying \(y_k(0) = 0, y^{\prime}_0=\frac{1}{a}=1\).
+
+          \[
+            \begin{split}
+              y_k(0) & = 0 = c_1 \\
+              y^{\prime}_k(0) = 1 = c_1 + c_2 \\
+            \end{split}
+          \]
+          Thus,
+          \[
+            c_1 = 0, c_2 = 1
+          \]
+
+          Therefore \(y_k = te^{t}\).
+          Now by using the part (c), \(c_1e^{t} + c_2te^{t}\) satisfying \(y(0)
+          = 2, y^{\prime}(0) = 0\) (given).
+          \[
+            \begin{split}
+              y_k(0) & = 2 = c_1 \\
+              y^{\prime}_k(0) = c_1 + c_2 \\
+            \end{split}
+          \]
+
+          So we get \(c_1 = 2, c_2 = -2\).
+      \end{enumerate}
+
+      Thus, from the part (c), the solution for the given equation is
+      \[
+        \begin{split}
+        (y_k \times f)(t) + y_k(t) & = \int^{t}_{0}{(t-u)e^{t-u} \sqrt{ue^{u}}du}
+        + 2e^{t} - 2e^{t} \\
+        & = \frac{4}{15}t^{\frac{5}{2}}e^{t} - 2te^{t} + 2e^t
+      \end{split}
+      \]
+    \end{solutionToProblem}
+  \end{enumerate}
+\end{homeworkProblem}
 \end{document}
