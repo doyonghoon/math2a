@@ -581,8 +581,128 @@
 
       Then finally we get
       \begin{equation}
-        y & = \frac{1}{2}\left( \frac{a^{ax} + e^{-ax}}{a} \right) + \frac{a^2 - 1}{a}
+        y = \frac{1}{2}\left( \frac{a^{ax} + e^{-ax}}{a} \right) + \frac{a^2 - 1}{a}
       \end{equation}
+    \end{solutionToProblem}
+  \end{enumerate}
+\end{homeworkProblem}
+
+\pagebreak
+
+\begin{homeworkProblem}{Chapter 4C: Simple Pendulum}
+  \begin{enumerate}[label=(\alph*)]
+  \item
+    \begin{solutionToProblem}
+      By assuming the problem consisting of mass \(m\) suspended by a rod of
+      length \(l\) and writing the derived nonlinear initial value problem,
+      \[
+        \derivs{\theta}{t} + \frac{g}{l} \sin{\theta} = 0, \hspace{0.5cm}
+        \theta(0) = \alpha(0), \theta^{\prime}(0) = 0
+      \]
+
+      Let us determine the equation of motion for the pendulum and its period.
+
+      \begin{equation}
+        \begin{split}
+          \left( \deriv{\theta}{t} \right) \left( \derivs{\theta}{t} \right) + \frac{g}{l} \sin{\theta}\left( \deriv{\theta}{t} \right) & = 0 \\
+          \deriv{}{t} \left( \frac{1}{2} \left( \deriv{\theta}{t} \right)^2 - \frac{g}{l} \cos{\theta} \right) & = 0 \\
+          \frac{1}{2} \left( \deriv{\theta}{t} \right)^2 - \frac{g}{l} \cos{theta} & = c \\
+          \left( \frac{\theta}{t} \right)^2 - \frac{2g}{l} \cos{\theta} = C
+        \end{split}
+      \end{equation}
+
+      By applying the initial conditions,
+      \begin{equation}
+        \left( \theta^{\prime}(0) \right)^2 - \frac{2g}{l}\cos{theta}(0) = C
+      \end{equation}
+
+      Then we get
+      \begin{equation}
+        \begin{split}
+          0 - \frac{2g}{l} \cos{\alpha} & = C \\
+          C & = - \frac{2g}{l} \cos{\alpha}
+        \end{split}
+      \end{equation}
+
+      By substituting \(C\) value into \(\left( \deriv{\theta}{t} \right)^2 -
+      \frac{2g}{l} \cos{\theta} = C\), then we get
+      \begin{equation}
+        \begin{split}
+          \left( \deriv{\theta}{t} \right)^2 - \frac{2g}{l} \cos{\theta} & = - \frac{2g}{l} \cos{\alpha} \\
+          \left( \deriv{\theta}{t} \right)^2 & = \frac{2g}{l}\left( \cos{\theta} - \cos{\alpha} \right) \\
+          \deriv{\theta}{t} & = - \sqrt{\frac{2g}{l} \left( \cos{\theta} - \cos{\alpha} \right)} \\
+          dt & = - \sqrt{\frac{1}{2g}} \frac{d\theta}{\sqrt{\left( \cos{\theta} - \cos{\alpha} \right)}}
+          \end{split}
+      \end{equation}
+    \end{solutionToProblem}
+
+  \item
+    \begin{solutionToProblem}
+      By using the formula, \(\cos{x} = 1 - 2\sin^2{x}\), we can say that
+      \begin{equation}
+        \begin{split}
+          dt & = - \sqrt{\frac{1}{2g}} \frac{d\theta}{\sqrt{\left( \left( 1 - 2\sin^2{\theta} \right) - \left( 1 - 2\sin^2{\alpha} \right) \right)}} \\
+          dt & = - \frac{1}{2}\sqrt{\frac{l}{g}} \frac{d\theta}{\sqrt{sin^2{\frac{\alpha}{2}} - \sin^2{\frac{\theta}{2}}}}
+        \end{split}
+      \end{equation}
+    \end{solutionToProblem}
+
+  \item
+    \begin{solutionToProblem}
+      Now, let us determine the elapsed time \(T\), for the pendulum to fall
+      from the angle \(\theta = \alpha\) to the angle \(\theta = \beta\)
+      corresponding to \(\phi = \frac{\pi}{2}\) to \(\phi = \Phi\)
+
+      \begin{equation}
+        \begin{split}
+          T = \int^{t}_0{dt} & = - \frac{1}{2} \sqrt{\frac{l}{g}} \frac{d\theta}{\sqrt{\sin^2{\frac{\alpha}{2}} - \sin^2{\frac{\theta}{2}}}} \\
+          & = - \frac{1}{2} \sqrt{\frac{l}{g}} \int^{\phi}_{\frac{\pi}{2}}{\frac{d\theta}{\sqrt{\sin^2{\frac{\alpha}{2}} - \sin^2{\frac{\theta}{2}}}}} \\
+          & = - \sqrt{\frac{l}{g}} \int^{\phi}_{\frac{\pi}{2}}{\frac{d\phi}{\sqrt{1 - k^2 \sin^2{\phi}}}}, \hspace{0.3cm} \mbox{ where } k = \sin{\frac{\alpha}{2}}
+        \end{split}
+      \end{equation}
+
+      Thus, we get
+      \begin{equation}
+        -T = \sqrt{\frac{1}{g}} \int^{\phi}_{\frac{\pi}{2}}{\frac{d\phi}{1 - k^2 \sin^2{\phi}}}
+      \end{equation}
+    \end{solutionToProblem}
+  \item
+    \begin{solutionToProblem}
+      Let us determine the period \(P\) of the pendulum.
+      The period is defined to be the time required for it swing from one
+      extreme to other extreme and back. Therefore, from \(\alpha\) to
+      \(-\alpha\) and from \(-\alpha\) to \(\alpha\).
+      Therefore, the total period is four equal parts.
+      Thus, the period is given by
+
+      \begin{equation}
+        P = (4) \sqrt{\frac{l}{g}} \int^{\frac{\pi}{2}}_{0}{\frac{d\phi}{\sqrt{1 - k^2 \sin^2{\phi}}}}
+      \end{equation}
+
+      Now, the integral
+      \[
+        \int^{\frac{\pi}{2}}_{0}{\frac{d\phi}{\sqrt{1 - k^2 \sin^2(\phi)}}}
+      \]
+      is called an elliptic integral of the first kind and denoted by
+      \[
+        F\left( k, \frac{\pi}{2} \right) =
+        \int^{\frac{\pi}{2}}_{0}{\frac{d\phi}{\sqrt{1 - k^2 \sin^2{\phi}}}}
+      \]
+    \end{solutionToProblem}
+  \item
+    \begin{solutionToProblem}
+      \begin{equation}
+        \begin{split}
+          \frac{P}{4} + (-T) & = \sqrt{\frac{l}{g}} \int^{\frac{\pi}{2}}_{0}{\frac{d\phi}{\sqrt{1 - k^2 \sin^2(\phi)}}} + \sqrt{\frac{l}{g}} \int^{\phi}_{\frac{\pi}{2}}{\frac{d\phi}{\sqrt{1 - k^2 \sin^2(\phi)}}} \\
+          -T + \frac{P}{4} & = \sqrt{\frac{l}{g}} \int^{\phi}_{0}{\frac{d\phi}{\sqrt{1 - k^2 \sin^2{\phi}}}} \\
+          -T + \frac{P}{4} & = \sqrt{\frac{l}{g}}F \left( k, \Phi \right)
+        \end{split}
+      \end{equation}
+
+      This is obtained by substituting
+      \[
+        F \left( k, \Phi \right) = \int^{\phi}_{0}{\frac{d\phi}{\sqrt{1 - k^2 \sin^2{\phi}}}}
+      \]
     \end{solutionToProblem}
   \end{enumerate}
 \end{homeworkProblem}
