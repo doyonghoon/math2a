@@ -213,6 +213,134 @@
 
 \begin{document}
 
+\begin{homeworkProblem}{Chapter1.1 \#17 Drag Race}
+  \begin{solutionToProblem}
+    Let us consider Alice and Kevin begin from a standing start in the race and
+    they move foward with a constant acceleration. Let us denote \(A\) for Alice
+    and \(K\) for Kevin then we can say that
+    \[
+      a(t) = k, \mbox{ where } k \mbox{ is a constant.}
+    \]
+
+    Then the \textit{velocity} is
+    \[
+      \begin{split}
+        v(t) & = \int{a(t)dt} + C \\
+        & = \int{k dt} + C \\
+        & = kt + C
+      \end{split}
+      \]
+
+      The initial velocity is zero, Thus, we get
+      \[
+        \begin{split}
+          v(0) & = 0 \\
+          k(0) + C & = 0 \\
+          C & = 0
+        \end{split}
+      \]
+
+      Therefore the velocity is \[v(t) = kt\]
+
+      \bigskip
+
+      Let us denote that
+      \[
+        \begin{split}
+          s(t) & = \int{v(t)dt} + C_1 \\
+          & = \int{kt dt} + C_1 \\
+          & = \frac{kt^2}{2} + C_1
+        \end{split}
+      \]
+        The constant value will be zero since our standing point is at the
+        beginning of the race. Therefore,
+        \[
+          s(t) = \frac{1}{2}kt^2
+        \]
+
+        Now, the acceleration is the second derivative of the position function,
+        or is the first derivative of the velocity function. Therefore,
+        \[
+          a = \deriv{v}{t} = k
+        \]
+
+        Let \(D\) represent the total distance of the racec and \(T\) be the
+        time then we get
+        \[
+          D = s(t) = \frac{1}{2}aT^2
+        \]
+
+        Solving this equation for \(T\) to get
+        \[
+          T = \sqrt{\frac{2D}{a}}
+        \]
+
+        \bigskip
+
+        For Kevin, when she has \(\frac{1}{4}\) left to go she has already
+        traveled \(\frac{3}{4}\) of the entire distance \(D\), so we can express
+        this as follows:
+        \[
+          \begin{split}
+            t_{\frac{3}{4}} & = \sqrt{\frac{2\left( \frac{3}{4} \right)D}{a}} \\
+            & = \sqrt{\frac{3}{4}}\sqrt{\frac{2D}{a}} \\
+            & = \frac{\sqrt{3}}{2}T
+          \end{split}
+        \]
+
+        Thus, the total time for Kevin to complete the race is,
+        \[
+          \begin{split}
+            T & = t_{\frac{1}{4}} + t_{\frac{3}{4}} \\
+            T & = 3 + \frac{\sqrt{3}}{2}T \\
+            T\left( 1 - \frac{\sqrt{3}}{2} \right) & = 3 \\
+            T \left( \frac{2 - \sqrt{3}}{2} \right) & = 3 \\
+            T & = \frac{6}{2 - \sqrt{3}} \\
+            T & = 6\left( 2 + \sqrt{3} \right)
+          \end{split}
+        \]
+
+        Thus, \[T = 6\left( 2 + \sqrt{3} \right) \approx 22.3923 \mbox{ seconds for
+            Kevin to finish the race.}\]
+
+        Now, we need to find the time how long it takes for Alice to finish the
+        race in a similar manner. When Alice has \(\frac{1}{3}\) to go her has
+        already covered \(\frac{2}{3}\) of the total distance of the race.
+        \[
+          \begin{split}
+            t_{\frac{2}{3}} & = \sqrt{\frac{2\left( \frac{2}{3} \right)D}{a}} \\
+            & = \sqrt{\frac{2}{3}} \sqrt{\frac{2D}{a}} \\
+            & = \sqrt{\frac{2}{3}}T
+          \end{split}
+        \]
+
+        Therefore, the total time for Alice to complete the race is
+        \[
+          \begin{split}
+            T & = t_{\frac{1}{3}} + t_{\frac{2}{3}} \\
+            T & = 4 + \sqrt{\frac{2}{3}}T \\
+            T \left( 1 - \sqrt{\frac{2}{3}} \right) & = 4 \\
+            T\left( \frac{\sqrt{3} - \sqrt{2}}{\sqrt{3}} \right) & = 4 \\
+            T & = \frac{4\sqrt{4}}{\sqrt{3} - \sqrt{2}} \\
+            T & = 4\sqrt{3}\left( \sqrt{3} + \sqrt{2} \right) \\
+            T & = 4\left( 3 + \sqrt{6} \right) \approx 21.798 \\
+          \end{split}
+        \]
+
+        Thus, Alice wins by
+        \[
+          \begin{split}
+            T & = 6\left( 2 + \sqrt{3} \right) - 4\left( 3 + \sqrt{6} \right)
+            \\
+            & = 6\sqrt{3} - 4\sqrt{6} \\
+            \approx 0.594
+          \end{split}
+        \]
+
+        Thus, Alice wins by \(\left( 6\sqrt{3} - 4\sqrt{6} \right)\) seconds.
+  \end{solutionToProblem}
+\end{homeworkProblem}
+
 \pagebreak
 
 \begin{homeworkProblem}{Chapter 1 B: Picard's Method}
